@@ -1,3 +1,6 @@
+# Exclude /target directory
+/target
+
 # Prerequisites
 *.d
 
