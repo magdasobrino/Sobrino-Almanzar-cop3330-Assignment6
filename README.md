@@ -1,44 +1,13 @@
 # Sobrino-Almanzar-cop3330-Assignment6
 User Guide Calculator 
-
-Calculation Structure:
-        Entry
-        Print
-        Quit
-        Result
-    
-    Statement:
-        Declaration
-        Expression
-    
-    Declaration:
-        "let" Name "=" Expression
-        "const" Name "=" Expression
-
-    Print:
-        ;
-
-    Quit:
-        q 
-
-    Expression:
-        Term
-        Expression + Term
-        Expression - Term
-    Term:
-        Primary
-        Term * Primary
-        Term / Primary
-        Term % Primary
-    Primary:
-        Number
-        Name
-		Name = Expression
-        ( Expression )
-        - Primary
-        + Primary
-    Number:
-        floating-point-literal
-	Name:
-		[a-zA-Z][a-zA-Z_0-9]
-
+         
+         1.This calculator program supports +, -, *, and operations.
+         2.Enter any form of compound statement followed by ';' for result.
+          ex: 4 + 1; (5-2)/{6*(8+14)}
+         3.The modulo operator % may be used on all numbers.
+         4.An '!' placed after a value will calculate the factorial of it.
+         ex: 4! = 4 * 3 * 2 * 1
+         5.Square root and exponentiation are provided by 'sqrt' and 'pow'
+         ex: sqrt(25) = 5, pow(5,2) = 25
+         6.Variable assignment is provided using the 'let' keyword
+         ex: let x = 37; x * 2 = 74; x = 4; x * 2 = 8
