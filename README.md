@@ -1,7 +1,7 @@
 # Sobrino-Almanzar-cop3330-Assignment6
 User Guide Calculator 
          
-         1.This calculator program supports +, -, *, and operations.
+         1.This calculator program supports +, -, *, and other operations.
          2.Enter any form of compound statement followed by ';' to print result. Enter "q" to quit operation.
           ex: 4 + 1; (5-2)/{6*(8+14)}
          3.The modulo operator % may be used on all numbers.
