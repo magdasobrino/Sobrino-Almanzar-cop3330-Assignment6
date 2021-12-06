@@ -40,7 +40,7 @@ const string result  = "= ";
 const char square_root = '@';
 const char exponent = '^';
 const string sqrtkey = "sqrt";
-const string expkey = "pow";
+const string expkey = "power";
 
 
 class Token {
@@ -64,7 +64,7 @@ private:
     Token buffer {'0'};         // here is where putback() stores a Token
 };
 
-Token_stream::Token_stream()
+Token_option::Token_option()
 :full(false), buffer(0)    // no Token in buffer
 {
 }
@@ -79,7 +79,7 @@ void Token_option::ignore(char c)
     }
     full = false;
 
-    // now search for input
+ 
     char ch = 0;
     while (cin >> ch)
         if (ch == c) return;
@@ -267,7 +267,7 @@ double calc_sqrt()
     return sqrt(d);
 }
 
-double calc_pow()
+double calc_power()
 {
     Token t = ts.get();
     if (t.kind != '(') error("'(' expected");
@@ -312,12 +312,11 @@ double primary()            // deal with numbers and parenthesis
         case square_root:
             return calc_sqrt();
         case exponent:
-            return calc_pow();
+            return calc_power();
         default:
             error("primary expected");
     }
 }
-
 
 
 double term()              
