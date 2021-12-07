@@ -169,7 +169,7 @@ public:
 
 vector<Variable> var_table;
 
-class Symbol_table {
+class Symbol_section {
     vector<Variable> var_table;
 public:
     bool is_declared(string);
@@ -178,7 +178,7 @@ public:
     double define_name(string, double, bool con = false);
 };
 
-bool Symbol_table::is_declared(string var)
+bool Symbol_section::is_declared(string var)
     // is var already in var_table?
 {
     for (const Variable& v : var_table)
@@ -186,7 +186,7 @@ bool Symbol_table::is_declared(string var)
     return false;
 }
 
-double Symbol_table::get_value(string s)
+double Symbol_section::get_value(string s)
     // return the value of the Variable named s
 {
     for (const Variable& v : var_table)
@@ -194,7 +194,7 @@ double Symbol_table::get_value(string s)
     error("get: undefined variable ", s);
 }
 
-double Symbol_table::set_value(string s, double d)
+double Symbol_section::set_value(string s, double d)
     // set the Variable named s to d
 {
     for (Variable& v : var_table)
@@ -215,7 +215,7 @@ double Symbol_table::define_name(string var, double val, bool con)
 }
 
 
-Symbol_table st;            // allows Variable storage and retrieval//
+Symbol_section st;            // allows Variable storage and retrieval//
 
 double get_value(string s)
     // return the value of the Variable names s
