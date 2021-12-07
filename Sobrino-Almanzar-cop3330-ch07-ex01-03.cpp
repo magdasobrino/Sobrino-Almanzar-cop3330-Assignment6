@@ -60,7 +60,7 @@ public:
     void putback(Token t);      // put a token back
     void ignore(char c);        // discard characters up to and including a c
 private:
-    bool full { false };        // is there a Token in the buffer?
+    bool full { false };   
     Token buffer {'0'};         // here is where putback() stores a Token
 };
 
@@ -93,8 +93,8 @@ void Token_option::putback(Token t)
 
 Token Token_option::get()
 {
-    if (full) {             // do we already have a Token?
-        full = false;       // remove Token from buffer
+    if (full) {            
+        full = false;       // delete Token from buffer
         return buffer;
     }
 
@@ -120,7 +120,7 @@ Token Token_option::get()
         case '%':
         case '=':
         case ',':
-            return Token { ch };    // let each character represent itself
+            return Token { ch };    
         case '.':
         case '0': 
         case '1': 
@@ -206,7 +206,7 @@ double Symbol_section::set_value(string s, double d)
     error("set: undefined variable ", s);
 }
 
-double Symbol_table::define_name(string var, double val, bool con)
+double Symbol_section::define_name(string var, double val, bool con)
     // add {var,val,con} to var_table
 {
     if (is_declared(var)) error(var, " declared twice");
@@ -215,7 +215,7 @@ double Symbol_table::define_name(string var, double val, bool con)
 }
 
 
-Symbol_section st;            // allows Variable storage and retrieval//
+Symbol_section st;            
 
 double get_value(string s)
     // return the value of the Variable names s
@@ -253,7 +253,7 @@ double define_name(string s, double val, bool var=true)
     return val;
 }
 
-// additional calculator functions
+// additional calculator operations
 
 double expression();        // forward declaration for primary to call
 
@@ -263,7 +263,7 @@ double calc_sqrt()
     if (cin.get(ch) && ch != '(') error("'(' expected");
     cin.putback(ch);
     double d = expression();
-    if (d < 0) error("sqrt: negative val is imaginary");
+    if (d < 0) error("impossible to solve");
     return sqrt(d);
 }
 
@@ -282,8 +282,8 @@ double calc_power()
 
 // input grammar functions
 
-double primary()            // deal with numbers and parenthesis
-    // ex 2 - added '{' case
+double primary()            // deal with numbers and parenthesis.. 7.2//
+    
 {
     Token t = ts.get();
     switch (t.kind) {
@@ -402,7 +402,7 @@ double statement()
     }
 }
 
-void delete_operartion()
+void delete_operation()
 {
     ts.ignore(print);
 }
@@ -414,6 +414,7 @@ void calculator()
         try {
             cout << prompt;
             Token t = ts.get();
+		
             while (t.kind == print) t = ts.get();   // discard extra 'prints'
             if (t.kind == help) print_help();
             else if (t.kind == quit) return;
@@ -446,3 +447,4 @@ catch(...) {
     cerr << "Unknown exception\n";
     return 2;
 }
+
