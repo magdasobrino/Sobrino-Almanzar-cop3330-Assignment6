@@ -179,7 +179,7 @@ public:
 };
 
 bool Symbol_section::is_declared(string var)
-    // is var already in var_table?
+   
 {
     for (const Variable& v : var_table)
         if (v.name == var) return true;
